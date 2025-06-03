@@ -699,7 +699,7 @@ class DeltaTable(object):
 
     @staticmethod  # type: ignore[arg-type]
     def _verify_type_int(variable: int, name: str) -> None:
-        if not isinstance(variable, int) or variable is None:
+        if variable is None or not isinstance(variable, int) or isinstance(variable, bool):
             raise ValueError("%s needs to be an int but got '%s'." % (name, type(variable)))
 
     @staticmethod
